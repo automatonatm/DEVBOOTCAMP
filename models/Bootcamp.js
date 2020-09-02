@@ -57,6 +57,7 @@ const BootcampSchema = new mongoose.Schema({
         // Array of strings
         type: [String],
         required: true,
+        //Can be removed
         enum: [
             'Web Development',
             'Mobile Development',

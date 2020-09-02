@@ -2,10 +2,17 @@ const  express = require('express');
 const  dotenv = require('dotenv');
 const morgan = require('morgan')
 
+//Middlewares
+const errorHandler = require('./middleware/error')
+
+
+//DB connection
 const connectDB = require('./config/db')
 
 // Route Files
 const bootcamps = require('./routes/bootcamps');
+
+
 
 // Load env
 dotenv.config({path: '.env'});
@@ -16,6 +23,7 @@ connectDB();
 //init app
 const app = express();
 
+
 //Body Parser
 app.use(express.json())
 
@@ -24,7 +32,7 @@ app.use(express.json())
 //Mount Routers
 app.use('/api/v1/bootcamps', bootcamps)
 
-
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
