@@ -1,26 +1,81 @@
 
+const Bootcamp = require('../models/Bootcamp')
+
+
 
 // @desc Get all bootcamps
 // @route GET /api/v1/bootcamps
 // @access Public
-exports.getBootCamps = (req, res, next) => {
-    res.status(200).json({success: true, msg: 'Show all bootcamps'})
+exports.getBootCamps = async (req, res, next) => {
+    try {
+        const  bootcamps = await Bootcamp.find()
+        res.status(200)
+            .json({
+                success: true,
+                data: bootcamps
+            })
+    } catch (err) {
+        res.status(400)
+            .json({
+                success: false,
+                error: err
+            })
+    }
 };
 
 
 // @desc Get a single bootcamp
 // @route GET /api/v1/bootcamps/:id
 // @access Public
-exports.getBootCamp = (req, res, next) => {
-     res.status(200).json({success: true, msg: `Show Bootcamp ${req.params.id}`})
+exports.getBootCamp = async (req, res, next) => {
+    try {
+        const  bootcamp = await Bootcamp.findById(req.params.id)
+        if(!bootcamp) {
+            return res.status(400)
+                .json({
+                    success: false,
+                    msg: 'BootCamp do not exists'
+                })
+        }
+        res.status(200)
+            .json({
+                success: true,
+                data: bootcamp
+            })
+    } catch (err) {
+        console.log(err)
+        res.status(400)
+            .json({
+                success: false,
+                error: err
+            })
+    }
 };
 
 
 // @desc create a bootcamp
 // @route POST /api/v1/bootcamps/
 // @access Private
-exports.createBootCamp = (req, res, next) => {
-    res.status(200).json({success: true, msg: `Create Bootcamp`})
+exports.createBootCamp = async  (req, res, next) => {
+
+    try {
+        const bootcamp =  await Bootcamp.create(req.body)
+        res.status(200)
+            .json({
+                success: true,
+                data: bootcamp
+            })
+    } catch (err) {
+        res.status(400)
+            .json({
+                success: false,
+                error: err
+            })
+
+    }
+
+
+
 };
 
 

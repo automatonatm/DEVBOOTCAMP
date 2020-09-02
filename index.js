@@ -16,6 +16,9 @@ connectDB();
 //init app
 const app = express();
 
+//Body Parser
+app.use(express.json())
+
 
 
 //Mount Routers
