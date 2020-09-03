@@ -12,16 +12,21 @@ exports.getBootCamps = asyncHandler(async (req, res, next) => {
     //console.log(req.query)
 
     let query
-    let queryStr = JSON.stringify(req.query)
-    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
-    console.log(queryStr)
-        const  bootcamps = await Bootcamp.find();
+
+    //copy of request query
+    const reqQuery = {...req.query}
+
+    let queryStr = JSON.stringify(reqQuery);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+
+     query = Bootcamp.find(JSON.parse(queryStr));
+        const  bootcamps = await query;
         res.status(200)
             .json({
                 success: true,
                 count: bootcamps.length,
                 data: bootcamps
-            })
+            });
 });
 
 
