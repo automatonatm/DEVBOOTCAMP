@@ -1,6 +1,7 @@
-const ErrorResponse = require('../utils/errorResponse')
-const Bootcamp = require('../models/Bootcamp')
-const asyncHandler = require('../middleware/async')
+const ErrorResponse = require('../utils/errorResponse');
+const Bootcamp = require('../models/Bootcamp');
+const asyncHandler = require('../middleware/async');
+const geocoder = require('../utils/geocoder');
 
 
 
@@ -8,7 +9,13 @@ const asyncHandler = require('../middleware/async')
 // @route GET /api/v1/bootcamps
 // @access Public
 exports.getBootCamps = asyncHandler(async (req, res, next) => {
-        const  bootcamps = await Bootcamp.find()
+    //console.log(req.query)
+
+    let query
+    let queryStr = JSON.stringify(req.query)
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`)
+    console.log(queryStr)
+        const  bootcamps = await Bootcamp.find();
         res.status(200)
             .json({
                 success: true,
@@ -23,7 +30,7 @@ exports.getBootCamps = asyncHandler(async (req, res, next) => {
 // @route GET /api/v1/bootcamps/:id
 // @access Public
 exports.getBootCamp = asyncHandler(async (req, res, next) => {
-    const  bootcamp = await Bootcamp.findById(req.params.id)
+    const  bootcamp = await Bootcamp.findById(req.params.id);
     if(!bootcamp) {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
     }
@@ -35,7 +42,7 @@ exports.getBootCamp = asyncHandler(async (req, res, next) => {
 // @route POST /api/v1/bootcamps/
 // @access Private
 exports.createBootCamp = asyncHandler(async  (req, res, next) => {
-    const bootcamp =  await Bootcamp.create(req.body)
+    const bootcamp =  await Bootcamp.create(req.body);
     res.status(200)
         .json({
             success: true,
@@ -52,7 +59,7 @@ exports.updateBootCamp = asyncHandler( async (req, res, next) => {
     const bootcamp =  await Bootcamp.findByIdAndUpdate(req.params.id, req.body,{
         new: true,
         runValidators: true
-    })
+    });
 
     if(!bootcamp) {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
@@ -80,6 +87,36 @@ exports.deleteBootCamp = asyncHandler(async (req, res, next) => {
             data: {}
         })
 });
+
+
+// @desc Get Bootcamps with a radius
+// @route GET /api/v1/bootcamps/radius/:zipcode/:distance
+// @access Private
+exports.getBootCampsInRedius = asyncHandler(async (req, res, next) => {
+    const  {zipcode, distance} = req.params;
+    //Get lat/lon from geocode
+    const loc = await geocoder.geocode(zipcode);
+    const lat = loc[0].latitude;
+    const lon = loc[0].longitude;
+
+
+    //calculate the radius
+    //Divide distance / radius of earth(3,963 mi | 6,378)
+    const radius = distance/3963
+
+    const bootcamps = await Bootcamp.find({
+        location:  { $geoWithin: {$centerSphere: [ [lon, lat], radius] } }
+    })
+    res.status(200).json({
+        success: true,
+        count: bootcamps.length,
+        data: bootcamps
+    })
+
+
+});
+
+
 
 
 
