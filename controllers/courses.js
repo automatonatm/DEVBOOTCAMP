@@ -73,3 +73,41 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
     res.status(200).json({success: true, data: course})
 
 });
+
+
+// @desc Update a course
+// @route GET /api/v1/course/:id
+// @access Private
+exports.updateCourse = asyncHandler( async (req, res, next) => {
+    const course =  await Course.findByIdAndUpdate(req.params.id, req.body,{
+        new: true,
+        runValidators: true
+    });
+
+    if(!course) {
+        return  next(new ErrorResponse(`Course not found with id of ${req.params.id}`, 404))
+    }
+    res.status(200)
+        .json({
+            success: true,
+            data: course
+        })
+});
+
+
+// @desc Delete a bootcamp
+// @route DELETE /api/v1/course/:id
+// @access Private
+exports.deleteCourse = asyncHandler(async (req, res, next) => {
+    const course =  await Course.findByIdAndDelete(req.params.id); //findByIdAndDelete does not trigger deletes
+
+    if(!course) {
+        return  next(new ErrorResponse(`Course not found with id of ${req.params.id}`, 404))
+    }
+
+    res.status(200)
+        .json({
+            success: true,
+            data: {}
+        })
+});
