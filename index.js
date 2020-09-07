@@ -1,14 +1,16 @@
 const  express = require('express');
 const  dotenv = require('dotenv');
-const morgan = require('morgan')
+const morgan = require('morgan');
+const fileupload = require('express-fileupload');
+const path = require('path');
 
 //Middlewares
-const errorHandler = require('./middleware/error')
+const errorHandler = require('./middleware/error');
 
 
 
 //DB connection
-const connectDB = require('./config/db')
+const connectDB = require('./config/db');
 
 // Route Files
 const bootcamps = require('./routes/bootcamps');
@@ -27,9 +29,15 @@ const app = express();
 
 
 //Body Parser
-app.use(express.json())
+app.use(express.json());
 
 
+
+//File Upload
+app.use(fileupload());
+
+//Set Static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Mount Routers
 app.use('/api/v1/bootcamps', bootcamps);  //Bootcamps Router
@@ -50,7 +58,7 @@ const server = app.listen(
 
 //Handle Rejection
 process.on('unhandledRejection', (err, promise) => {
-    console.log(`Error, ${err.message}`)
+    console.log(`Error, ${err.message}`);
     server.close(() => process.exit(1))
 
 });

@@ -116,7 +116,7 @@ BootcampSchema.pre('save', function (next) {
 
 
 //Geocode  and location
-/*BootcampSchema.pre('save', async function (next) {
+BootcampSchema.pre('save', async function (next) {
     const loc = await geocoder.geocode(this.address);
     this.location =  {
         type: 'Point',
@@ -132,7 +132,7 @@ BootcampSchema.pre('save', function (next) {
     //Do not save address in db
     this.address = undefined
     next()
-})*/
+})
 
 //Cascade delete Courses on model delete
 BootcampSchema.pre('remove', async  function (next) {

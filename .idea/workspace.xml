@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="494b9fd3-ee72-4f62-89c7-015ba1e438e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/_data/bootcamps.json" beforeDir="false" afterPath="$PROJECT_DIR$/_data/bootcamps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/courses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/bootcamps.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/bootcamps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Bootcamp.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Bootcamp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/courses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/bootcamps.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/bootcamps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeder.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,55 +25,46 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/courses.js">
+        <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+            <state relative-caret-position="424">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/courses.js">
+        <entry file="file://$PROJECT_DIR$/routes/bootcamps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_data/bootcamps.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/seeder.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+            <state relative-caret-position="643">
+              <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/Course.js">
+        <entry file="file://$PROJECT_DIR$/controllers/bootcamps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="424">
+              <caret line="229" column="30" lean-forward="true" selection-start-line="229" selection-start-column="30" selection-end-line="229" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/bootcamps.js">
+        <entry file="file://$PROJECT_DIR$/models/Bootcamp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="141" selection-start-line="141" selection-end-line="157" selection-end-column="3" />
+            <state relative-caret-position="72">
+              <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -96,24 +91,25 @@
         <option value="$PROJECT_DIR$/utils/errorResponse.js" />
         <option value="$PROJECT_DIR$/middleware/error.js" />
         <option value="$PROJECT_DIR$/middleware/aasync.js" />
-        <option value="$PROJECT_DIR$/middleware/async.js" />
         <option value="$PROJECT_DIR$/utils/geocoder.js" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/routes/bootcamps.js" />
-        <option value="$PROJECT_DIR$/controllers/bootcamps.js" />
-        <option value="$PROJECT_DIR$/models/Bootcamp.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/controllers/courses.js" />
         <option value="$PROJECT_DIR$/routes/courses.js" />
         <option value="$PROJECT_DIR$/_data/bootcamps.json" />
+        <option value="$PROJECT_DIR$/middleware/async.js" />
+        <option value="$PROJECT_DIR$/models/Bootcamp.js" />
         <option value="$PROJECT_DIR$/seeder.js" />
+        <option value="$PROJECT_DIR$/controllers/courses.js" />
         <option value="$PROJECT_DIR$/models/Course.js" />
+        <option value="$PROJECT_DIR$/routes/bootcamps.js" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/controllers/bootcamps.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="width" value="1092" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
     <option name="height" value="1186" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -133,27 +129,13 @@
             <path>
               <item name="API" type="b2602c69:ProjectViewProjectNode" />
               <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="_data" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="API" type="b2602c69:ProjectViewProjectNode" />
               <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="API" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -217,18 +199,18 @@
       <option name="presentableId" value="Default" />
       <updated>1598981920396</updated>
       <workItem from="1598981926442" duration="2000" />
-      <workItem from="1598981939355" duration="87701000" />
+      <workItem from="1598981939355" duration="98116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87703000" />
+    <option name="totallyTimeSpent" value="98118000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1186" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21752267" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15335463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -236,7 +218,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38833332" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3139535" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -361,38 +343,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middleware/async.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="457" selection-start-line="457" selection-end-line="457" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/errorResponse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/middleware/error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" column="73" lean-forward="true" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -403,69 +357,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/bootcamps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Bootcamp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1247">
-          <caret line="114" column="3" lean-forward="true" selection-start-line="114" selection-start-column="3" selection-end-line="114" selection-end-column="3" />
-          <folding>
-            <element signature="e#2719#3232#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/bootcamps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="141" selection-start-line="141" selection-end-line="157" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/courses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/courses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_data/bootcamps.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+        <state relative-caret-position="1560">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/seeder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+          <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/courses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Course.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="439">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/courses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/bootcamps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/async.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/error.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/errorResponse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Bootcamp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express-fileupload/lib/utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/photo_5d713995b721c3bb38c1f5d0.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/photo_5d713995b721c3bb38c1f5d0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/bootcamps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="229" column="30" lean-forward="true" selection-start-line="229" selection-start-column="30" selection-end-line="229" selection-end-column="30" />
         </state>
       </provider>
     </entry>
