@@ -15,7 +15,7 @@ const connectDB = require('./config/db');
 // Route Files
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
-
+const auth = require('./routes/auth');
 
 
 // Load env
@@ -42,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Mount Routers
 app.use('/api/v1/bootcamps', bootcamps);  //Bootcamps Router
 app.use('/api/v1/courses', courses); //Course Router
+app.use('/api/v1/auth', auth); //Auth Router
 
 
 app.use(errorHandler);
