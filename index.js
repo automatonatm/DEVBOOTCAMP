@@ -2,6 +2,7 @@ const  express = require('express');
 const  dotenv = require('dotenv');
 const morgan = require('morgan');
 const fileupload = require('express-fileupload');
+const  cookieParser = require('cookie-parser')
 const path = require('path');
 
 //Middlewares
@@ -30,6 +31,9 @@ const app = express();
 
 //Body Parser
 app.use(express.json());
+
+//Cookie Passer
+app.use(cookieParser());
 
 
 
