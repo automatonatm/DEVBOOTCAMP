@@ -1,5 +1,6 @@
 const express  = require('express');
 const  router  = express.Router({mergeParams: true});
+const {protect} = require('../middleware/auth')
 
 const {
     getCourses,
@@ -17,12 +18,12 @@ router.route('/')
         path: 'bootcamp',
         select: 'slug name description'
     }), getCourses)
-    .post(createCourse);
+    .post(protect, createCourse);
 
 router.route('/:id')
     .get(getCourse)
-    .put(updateCourse)
-    .delete(deleteCourse);
+    .put(protect, updateCourse)
+    .delete(protect, deleteCourse);
 
 
 
