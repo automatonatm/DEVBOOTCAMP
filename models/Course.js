@@ -41,7 +41,6 @@ const  CourseSchema = new mongoose.Schema({
 //static method to get average cost of course tuition
 CourseSchema.statics.getAverageCost  = async function (bootcampId) {
 
-
     const obj = await  this.aggregate([
         {
             $match:  {bootcamp: bootcampId}
@@ -54,7 +53,7 @@ CourseSchema.statics.getAverageCost  = async function (bootcampId) {
         }
 
 
-    ])
+    ]);
 
     try {
        await this.model('Bootcamp').findByIdAndUpdate(bootcampId, {
@@ -62,15 +61,16 @@ CourseSchema.statics.getAverageCost  = async function (bootcampId) {
        })
     } catch (err) {
             console.error((err))
-
     }
 
 };
+
 
 //call get Average cost after save
 CourseSchema.post('save', function () {
         this.constructor.getAverageCost(this.bootcamp)
 });
+
 
 
 //call get Average cost before save

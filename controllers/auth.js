@@ -7,7 +7,7 @@ const User = require('../models/User');
 // @access Public
 
 exports.register = asyncHandler(async (req, res, next) => {
-    const  {name, email, password, role } = req.body
+    const  {name, email, password, role } = req.body;
 
     //Create a user
     const user = await User.create({
@@ -52,7 +52,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 // @access Private
 exports.getMe = asyncHandler(async (req, res, next) => {
 
-    const user = await User.findById(req.user.id)
+    const user = await User.findById(req.user.id);
 
     return res.status(200)
         .json({
@@ -71,6 +71,7 @@ const sendTokenResponse = (user, statusCode, res) => {
          expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 *   60 * 60 * 1000 ),
          httpOnly: true
      };
+
 
      if(process.env.NODE_ENV === 'production') options.httpOnly = true;
 
