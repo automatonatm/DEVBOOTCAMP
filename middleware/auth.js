@@ -32,3 +32,14 @@ exports.protect = asyncHandler(async (req, res, next) => {
     }
 
 });
+
+//ACL Access control
+exports.authorize = (...roles) => {
+    return (req, res, next) => {
+        if(!roles.includes(req.user.role)) {
+            return next(new  ErrorResponse('UnAuthorised Action', 403))
+        }
+        next()
+    }
+
+};
