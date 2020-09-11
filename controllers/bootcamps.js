@@ -37,6 +37,17 @@ exports.getBootCamp = asyncHandler(async (req, res, next) => {
 // @route POST /api/v1/bootcamps/
 // @access Private
 exports.createBootCamp = asyncHandler(async  (req, res, next) => {
+    //Add User to request
+    req.body.user = req.user.id;
+
+    //Check for published bootcamp
+    const publishedBootcamp = await Bootcamp.findOne({user: req.user.id})
+
+    if(publishedBootcamp && req.user.role !== 'admin') {
+        return next(new ErrorResponse('You can alone create one bootcamp on this account', 400))
+    }
+
+
     const bootcamp =  await Bootcamp.create(req.body);
     res.status(200)
         .json({
@@ -51,14 +62,24 @@ exports.createBootCamp = asyncHandler(async  (req, res, next) => {
 // @route GET /api/v1/bootcamps/:id
 // @access Private
 exports.updateBootCamp = asyncHandler( async (req, res, next) => {
-    const bootcamp =  await Bootcamp.findByIdAndUpdate(req.params.id, req.body,{
-        new: true,
-        runValidators: true
-    });
+
+
+
+    //remover user from the request
+    delete  req.body.user;
+    let bootcamp =  await Bootcamp.findByIdAndUpdate(req.params.id);
 
     if(!bootcamp) {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
     }
+
+   if(checkOwnerShip(bootcamp.user.toString(), req))  return next(new  ErrorResponse('UnAuthorised Action', 403));
+
+     bootcamp =  await Bootcamp.findByIdAndUpdate(req.params.id, req.body,{
+        new: true,
+        runValidators: true
+    });
+
     res.status(200)
         .json({
             success: true,
@@ -76,6 +97,9 @@ exports.deleteBootCamp = asyncHandler(async (req, res, next) => {
     if(!bootcamp) {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
     }
+
+    if(checkOwnerShip(bootcamp.user.toString(), req))  return next(new  ErrorResponse('UnAuthorised Action', 403));
+
 
     bootcamp.remove();
 
@@ -123,6 +147,7 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
     }
 
+    if(checkOwnerShip(bootcamp.user.toString(), req))  return next(new  ErrorResponse('UnAuthorised Action', 403));
 
 
 
@@ -165,6 +190,11 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) => {
 
 
 });
+
+
+const checkOwnerShip = (ownerId, req) => {
+    return ownerId !== req.user.id && req.user.role !== 'admin'
+};
 
 
 

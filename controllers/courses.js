@@ -45,11 +45,13 @@ exports.getCourses = asyncHandler(async (req, res, next) => {
 exports.createCourse = asyncHandler(async (req, res, next) => {
 
     req.body.bootcamp = req.params.bootcampId;
+    req.body.user = req.user.id;
     const  bootcamp = await Bootcamp.findById(req.params.bootcampId);
 
     if(!bootcamp) {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.bootcampId}`, 404))
     }
+    if(checkOwnerShip(bootcamp.user.toString(), req))  return next(new  ErrorResponse('Unauthorised Action', 403));
 
     const course =  await Course.create(req.body);
     res.status(200)
@@ -82,14 +84,26 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
 // @route GET /api/v1/course/:id
 // @access Private
 exports.updateCourse = asyncHandler( async (req, res, next) => {
-    const course =  await Course.findByIdAndUpdate(req.params.id, req.body,{
-        new: true,
-        runValidators: true
-    });
+
+
+    //remover user from the request
+    delete  req.body.user;
+
+    let course =  await Course.findByIdAndUpdate(req.params.id);
 
     if(!course) {
         return  next(new ErrorResponse(`Course not found with id of ${req.params.id}`, 404))
     }
+
+
+
+    if(checkOwnerShip(course.user.toString(), req))  return next(new  ErrorResponse('UnAuthorised Action', 403));
+
+    course =  await Course.findByIdAndUpdate(req.params.id, req.body,{
+        new: true,
+        runValidators: true
+    });
+
     res.status(200)
         .json({
             success: true,
@@ -102,11 +116,14 @@ exports.updateCourse = asyncHandler( async (req, res, next) => {
 // @route DELETE /api/v1/course/:id
 // @access Private
 exports.deleteCourse = asyncHandler(async (req, res, next) => {
-    const course =  await Course.findByIdAndDelete(req.params.id); //findByIdAndDelete does not trigger deletes
+    let course =  await Course.findById(req.params.id); //findByIdAndDelete does not trigger deletes
 
     if(!course) {
         return  next(new ErrorResponse(`Course not found with id of ${req.params.id}`, 404))
     }
+    if(checkOwnerShip(course.user.toString(), req))  return next(new  ErrorResponse('UnAuthorised Action', 403));
+
+     await Course.findByIdAndDelete(req.params.id); //findByIdAndDelete does not trigger deletes
 
     res.status(200)
         .json({
@@ -114,3 +131,7 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
             data: {}
         })
 });
+
+const checkOwnerShip = (ownerId, req) => {
+    return ownerId !== req.user.id && req.user.role !== 'admin'
+};

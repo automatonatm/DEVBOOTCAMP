@@ -97,6 +97,12 @@ const BootcampSchema = new mongoose.Schema({
         default: false
     },
 
+    user : {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Users',
+        required: true
+    },
+
     createdAt: {
         type: Date,
         default: Date.now
@@ -148,6 +154,8 @@ BootcampSchema.virtual('courses', {
     foreignField: 'bootcamp',
     justOne: false
 });
+
+
 
 
 module.exports  = mongoose.model('Bootcamp', BootcampSchema);
