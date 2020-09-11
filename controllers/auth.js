@@ -1,7 +1,7 @@
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const User = require('../models/User');
-
+const sendMail = require('../utils/sendEmail')
 // @desc  Register user
 // @route POST /api/v1/auth/register
 // @access Public
@@ -77,13 +77,37 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 
    await user.save({validateBeforeSave: false});
 
-   console.log(resetToken)
+   //Create reset reset url
 
-    return res.status(200)
-        .json({
-            success: true,
-            data: user
+    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/resetpassword/${resetToken}`;
+
+    const message = `Click here to reset your password ${resetUrl}`;
+
+    try {
+        await sendMail({
+            email:  user.email,
+            subject: 'Password Reset Token',
+            message
         })
+
+        return res.status(200)
+            .json({
+                success: true,
+                data: 'Email has been sent'
+            })
+
+    } catch (err) {
+        console.log(err)
+        user.resetPasswordToken = undefined
+        user.resetPasswordExpiredAt = undefined
+        await user.save({validateBeforeSave: false});
+
+        return next(new ErrorResponse('An Unknown Error Occurred, Please Try Again', 400));
+    }
+
+
+
+
 });
 
 //Get token from model, create cookie and send response
