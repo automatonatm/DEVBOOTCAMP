@@ -37,7 +37,22 @@ const UserSchema = new  mongoose.Schema({
         default: Date.now
     }
 
+},{
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true},
 });
+
+
+//Reverse populate with virtuals  load bootcamps with there courses
+UserSchema.virtual('bootcamps', {
+    ref: 'Bootcamp',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: false
+});
+
+
+
 
 
 //Encrypt password with bcryptjs
@@ -79,5 +94,7 @@ UserSchema.methods.getResetToken = async function () {
 
     return restToken;
 };
+
+
 
 module.exports = mongoose.model('Users', UserSchema);

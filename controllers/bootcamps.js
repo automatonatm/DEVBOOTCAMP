@@ -12,10 +12,7 @@ const geocoder = require('../utils/geocoder');
 // @access Public
 exports.getBootCamps = asyncHandler(async (req, res, next) => {
    // console.log(req.query)
-
-
         res.status(200)
-
             .json(res.advanceResults);
 });
 
@@ -59,7 +56,7 @@ exports.createBootCamp = asyncHandler(async  (req, res, next) => {
 
 
 // @desc Update a bootcamp
-// @route GET /api/v1/bootcamps/:id
+// @route PUP /api/v1/bootcamps/:id
 // @access Private
 exports.updateBootCamp = asyncHandler( async (req, res, next) => {
 
@@ -67,7 +64,7 @@ exports.updateBootCamp = asyncHandler( async (req, res, next) => {
 
     //remover user from the request
     delete  req.body.user;
-    let bootcamp =  await Bootcamp.findByIdAndUpdate(req.params.id);
+    let bootcamp =  await Bootcamp.findById(req.params.id);
 
     if(!bootcamp) {
         return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
