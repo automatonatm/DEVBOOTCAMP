@@ -9,16 +9,19 @@ exports.protect = asyncHandler(async (req, res, next) => {
     let token;
 
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer') ) {
+
+        //set token from header
         token = req.headers.authorization.split(' ')[1];
 
-    } /*else if(req.cookies.token) {
+    } else if(req.cookies.token) {
+        //set token from logout
         token = req.cookies.token;
-    }*/
+    }
 
     //Make sure token exist where by cookie or authorization
-    if(!token) {
+   /* if(!token) {
         return next(new  ErrorResponse('Access denied', 401))
-    }
+    }*/
 
 
     //verify token

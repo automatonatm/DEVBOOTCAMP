@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const fileupload = require('express-fileupload');
 const  cookieParser = require('cookie-parser')
 const path = require('path');
+const mongoSanitize = require('express-mongo-sanitize');
 
 //Middlewares
 const errorHandler = require('./middleware/error');
@@ -37,7 +38,8 @@ app.use(express.json());
 //Cookie Passer
 app.use(cookieParser());
 
-
+// Sanitize data
+app.use(mongoSanitize());
 
 //File Upload
 app.use(fileupload());
