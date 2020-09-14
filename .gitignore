@@ -102,6 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
-.idea/workspace.xml
-.idea/workspace.xml
+.idea/*
+
 .idea/dictionaries/AUTOMATON.xml
+

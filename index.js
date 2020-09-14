@@ -3,6 +3,7 @@ const  dotenv = require('dotenv');
 const morgan = require('morgan');
 const fileupload = require('express-fileupload');
 const  cookieParser = require('cookie-parser')
+const helmet = require("helmet");
 const path = require('path');
 const mongoSanitize = require('express-mongo-sanitize');
 
@@ -40,6 +41,9 @@ app.use(cookieParser());
 
 // Sanitize data
 app.use(mongoSanitize());
+
+//Helmet Protection
+app.use(helmet());
 
 //File Upload
 app.use(fileupload());
