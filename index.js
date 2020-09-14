@@ -6,6 +6,7 @@ const  cookieParser = require('cookie-parser')
 const helmet = require("helmet");
 const path = require('path');
 const mongoSanitize = require('express-mongo-sanitize');
+const  xss = require('xss-clean')
 
 //Middlewares
 const errorHandler = require('./middleware/error');
@@ -41,6 +42,9 @@ app.use(cookieParser());
 
 // Sanitize data
 app.use(mongoSanitize());
+
+//xss-clean
+app.use(xss());
 
 //Helmet Protection
 app.use(helmet());
