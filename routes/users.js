@@ -20,6 +20,7 @@ router.route('/')
 
 router.route('/:id')
     .get(getUser)
+
     .put(updateUser)
     .delete(deleteUser);
 

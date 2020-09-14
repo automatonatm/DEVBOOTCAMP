@@ -82,7 +82,7 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
 
 
 // @desc Update a course
-// @route GET /api/v1/course/:id
+// @route PUT /api/v1/course/:id
 // @access Private
 exports.updateCourse = asyncHandler( async (req, res, next) => {
 

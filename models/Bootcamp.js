@@ -146,6 +146,12 @@ BootcampSchema.pre('remove', async  function (next) {
     next()
 });
 
+//Cascade delete Review on model delete
+BootcampSchema.pre('remove', async  function (next) {
+    await  this.model('Review').deleteMany({bootcamp: this._id});
+    next()
+});
+
 
 //Reverse populate with virtuals  load bootcamps with there courses
 BootcampSchema.virtual('courses', {

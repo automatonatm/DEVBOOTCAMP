@@ -18,6 +18,7 @@ const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
+const reviews = require('./routes/reviews');
 
 
 // Load env
@@ -49,6 +50,7 @@ app.use('/api/v1/bootcamps', bootcamps);  //Bootcamps Router
 app.use('/api/v1/courses', courses); //Course Router
 app.use('/api/v1/auth', auth); //Auth Router
 app.use('/api/v1/auth/users', users); //Admin User Router
+app.use('/api/v1/reviews', reviews); //Review  Router
 
 
 app.use(errorHandler);
