@@ -14,7 +14,7 @@ exports.getReviews = asyncHandler(async (req, res, next) => {
     if(req.params.bootcampId) {
         const reviews = await Reviews.find({bootcamp: req.params.bootcampId}).populate({
             path: 'bootcamp',
-            select: 'name description'
+            select: 'name description averageRating'
         });
 
 
@@ -38,7 +38,7 @@ exports.getReviews = asyncHandler(async (req, res, next) => {
 exports.getReview = asyncHandler(async (req, res, next) => {
     const  review = await Reviews.findById(req.params.id).populate({
         path: 'bootcamp',
-        select: ' name description'
+        select: ' name description averageRating'
     });
 
     if(!review) {
@@ -79,8 +79,6 @@ exports.createReview = asyncHandler(async (req, res, next) => {
 // @route PUT /api/v1/review/:id
 // @access Private
 exports.updateReview = asyncHandler( async (req, res, next) => {
-
-
     //remove user from the request
     delete  req.body.user;
 
