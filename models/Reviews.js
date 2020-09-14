@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const  ReviewSchema = new mongoose.Schema({
+const  ReviewsSchema = new mongoose.Schema({
     title: {
         type: String,
         trim: true,
@@ -34,6 +34,8 @@ const  ReviewSchema = new mongoose.Schema({
     },
 });
 
+ReviewsSchema.index({bootcamp: 1, user: 1}, {unique: true});
 
 
-module.exports = mongoose.model('Review', ReviewSchema);
+
+module.exports = mongoose.model('Review', ReviewsSchema);
