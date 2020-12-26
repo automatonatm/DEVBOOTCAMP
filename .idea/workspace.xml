@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="494b9fd3-ee72-4f62-89c7-015ba1e438e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Course.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,12 +19,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="291" />
-    <option name="y" value="270" />
-    <option name="width" value="1380" />
-    <option name="height" value="752" />
   </component>
   <component name="ProjectId" id="1kqDMsTVIKKFfRQMdGdhf7NS0lG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -81,6 +76,8 @@
       <workItem from="1599768365685" duration="31170000" />
       <workItem from="1599874816345" duration="26018000" />
       <workItem from="1606419185178" duration="1384000" />
+      <workItem from="1608784246207" duration="3634000" />
+      <workItem from="1608935159296" duration="3939000" />
     </task>
     <servers />
   </component>

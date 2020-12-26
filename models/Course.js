@@ -69,6 +69,7 @@ CourseSchema.statics.getAverageCost  = async function (bootcampId) {
 };
 
 
+
 //call get Average cost after save
 CourseSchema.post('save', function () {
         this.constructor.getAverageCost(this.bootcamp)
@@ -80,6 +81,7 @@ CourseSchema.post('save', function () {
 CourseSchema.pre('remove', function () {
     this.constructor.getAverageCost(this.bootcamp)
 });
+
 
 
 
